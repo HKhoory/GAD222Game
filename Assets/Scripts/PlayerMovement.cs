@@ -5,6 +5,12 @@ using UnityEngine;
 
 public class PlayerMovement : MonoBehaviour
 {
+
+    [SerializeField] private GameObject dialogue1;
+    [SerializeField] private GameObject dialogue2;
+    [SerializeField] private GameObject dialogue3;
+    [SerializeField] private GameObject dialogue4;
+
     [SerializeField] private Rigidbody _rb;
 
     [SerializeField] private float speed;
@@ -37,6 +43,26 @@ public class PlayerMovement : MonoBehaviour
         //if mouse position is at left or right of screen,
         //turn that way
 
+    }
+
+    private void OnTriggerEnter(Collider other)
+    {
+        if (other.CompareTag("B1"))
+        {
+            dialogue1.SetActive(true);
+        }
+        else if (other.CompareTag("B2"))
+        {
+            dialogue2.SetActive(true);
+        }
+        else if (other.CompareTag("B3"))
+        {
+            dialogue3.SetActive(true);
+        }
+        else if (other.CompareTag("B4"))
+        {
+            dialogue4.SetActive(true);
+        }
     }
 
 }
